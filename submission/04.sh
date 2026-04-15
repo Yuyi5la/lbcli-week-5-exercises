@@ -5,7 +5,7 @@
 locktime=1495584032
 publicKey=02e3af28965693b9ce1228f9d468149b831d6a0540b25e8a9900f71372c11fb277
 
-PUBKEY_HASH=$(echo -n "$publicKey"| xxd -r -p | openssl dgst -sha256 -binary | openssl dgst -rmd160 -binary | xxd -p -c 200)
+pubkeyhash=$(echo -n "$publicKey"| xxd -r -p | openssl dgst -sha256 -binary | openssl dgst -rmd160 -binary | xxd -p -c 200)
 
 hex=$(printf '%08x' $locktime)
 little_endian=$(echo $hex | sed -E 's/(..)(..)(..)(..)/\4\3\2\1/')
